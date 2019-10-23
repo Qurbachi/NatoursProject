@@ -40,3 +40,34 @@ body {
 .logo {
   height: 35px;
 }
+
+.text-box {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main,
+.heading-primary-sub {
+  display: block;
+  text-align: center;
+}
+
+.heading-primary-main {
+  font-size: 3.75rem;
+  letter-spacing: 2.1rem;
+  font-weight: 400;
+}
+
+.heading-primary-sub {
+  font-size: 1.25rem;
+  letter-spacing: 1.1rem;
+  font-weight: 700;
+}
+.
