@@ -51,23 +51,60 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+  backface-visibility: hidden; /*mały trick dzięki któremu możemy pozbyć się efektu shaking na dziecku które ulega transformacj*/ 
 }
 
 .heading-primary-main,
 .heading-primary-sub {
   display: block;
   text-align: center;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 .heading-primary-main {
   font-size: 3.75rem;
   letter-spacing: 2.1rem;
   font-weight: 400;
+  animation-name: moveInLeft;
+  /*animation-delay: 3s;
+  animation-iteration-count: 3;
+  anmiation: [nazwa animacji] [czas anmiacja] [animation-timing-function];*/
 }
 
 .heading-primary-sub {
   font-size: 1.25rem;
   letter-spacing: 1.1rem;
   font-weight: 700;
+  animation-name: moveInRight;
 }
-.
+
+/*KEYFRAMES SECTION*/
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
