@@ -76,6 +76,9 @@ body {
 .btn:hover {
   transform: translateY(-0.3rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.6) scaleY(1.4);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-0.1rem);
@@ -93,16 +96,11 @@ body {
   z-index: -1;
   transition: all .4s; }
 
-.btn:hover::after {
-  transform: scaleX(1.6) scaleY(1.4);
-  opacity: 0; }
-
 .btn--white {
   background-color: #fff;
   color: #777; }
-
-.btn--white::after {
-  background-color: #fff; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn--animated {
   animation: moveInBottom 500ms ease-out .5s backwards;
