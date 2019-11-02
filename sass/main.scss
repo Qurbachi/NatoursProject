@@ -1,11 +1,8 @@
-/*
-COLORS:
-
-Light green: #7ed56f;
-Medium green: #55c57a;
-Dark green: #28b485;
-
-*/
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-gray-dark: #777;
+$color-white: #fff;
 
 *,
 *::after,
@@ -24,123 +21,127 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777;
+  color: $color-gray-dark;
   padding: 3rem;
   box-sizing: border-box;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)),
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
                     url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-}
 
-.logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.logo {
-  height: 3.5rem;
-}
+  &__logo {
+    height: 3.5rem;
+  }
 
-.text-box {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  &__text-box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   backface-visibility: hidden; /*mały trick dzięki któremu możemy pozbyć się efektu shaking na dziecku które ulega transformacj*/
   margin-bottom: 6rem;
+
+  &--main,
+  &--sub {
+    display: block;
+    text-align: center;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+
+  &--main {
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+    font-weight: 400;
+    animation-name: moveInLeft;
+    /*animation-delay: 3s;
+    animation-iteration-count: 3;
+    anmiation: [nazwa animacji] [czas anmiacja] [animation-timing-function];*/
+  }
+
+  &--sub {
+    font-size: 2rem;
+    letter-spacing: 1.7rem;
+    font-weight: 700;
+    animation-name: moveInRight;
+    margin-bottom: 9rem;
+  }
 }
 
-.heading-primary-main,
-.heading-primary-sub {
-  display: block;
-  text-align: center;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-}
+.btn {
 
-.heading-primary-main {
-  font-size: 6rem;
-  letter-spacing: 3.5rem;
-  font-weight: 400;
-  animation-name: moveInLeft;
-  /*animation-delay: 3s;
-  animation-iteration-count: 3;
-  anmiation: [nazwa animacji] [czas anmiacja] [animation-timing-function];*/
-}
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+  }
 
-.heading-primary-sub {
-  font-size: 2rem;
-  letter-spacing: 1.7rem;
-  font-weight: 700;
-  animation-name: moveInRight;
-  margin-bottom: 9rem;
-}
+  &:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+  }
 
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all .2s;
-  position: relative;
-}
+  &:active {
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+  }
 
-.btn:hover {
-  transform: translateY(-.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
-}
+  &::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10rem;
+    z-index: -1;
+    transition: all .4s;
+  }
 
-.btn:active {
-  transform: translateY(-.1rem);
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-}
+  &:hover::after {
+    transform: scaleX(1.6) scaleY(1.4);
+    opacity: 0;
+  }
 
-.btn::after {
-  content: "";
-  height: 100%;
-  width: 100%;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 10rem;
-  z-index: -1;
-  transition: all .4s;
-}
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+  }
 
-.btn:hover::after {
-  transform: scaleX(1.6) scaleY(1.4);
-  opacity: 0;
-}
+  &--white::after {
+    background-color: $color-white;
+  }
 
-.btn-white {
-  background-color: #fff;
-  color: #777;
-}
+  &--animated {
+      animation: moveInBottom 500ms ease-out .5s backwards;
+      /*animation-fill-mode: backwards*/
+  }
 
-.btn-white::after {
-  background-color: #fff;
-}
-
-.btn-animated {
-    animation: moveInBottom 500ms ease-out .5s backwards;
-    /*animation-fill-mode: backwards*/
 }
 
 /*KEYFRAMES SECTION*/
