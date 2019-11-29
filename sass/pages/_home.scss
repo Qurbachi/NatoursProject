@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 .section-about {
   margin-top: -20vh;
   padding: 25rem 0;
   background-color: $color-gray-light-1;
-=======
+}
+
 .section-features {
   background-image: linear-gradient(
     to right bottom,
@@ -18,5 +18,4 @@
   & > * {
     transform: skewY(5deg);
   }
->>>>>>> feature/features
 }
