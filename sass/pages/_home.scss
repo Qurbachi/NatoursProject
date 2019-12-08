@@ -19,3 +19,18 @@
     transform: skewY(5deg);
   }
 }
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+}
+
+.book {
+  display: block;
+  background-image: url(../img/nat-10.jpg);
+  background-size: 100%;
+  height: 50rem;
+  width: 100%;
+  border-radius: $border-radius-standard;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+}
