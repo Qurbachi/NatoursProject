@@ -1,7 +1,6 @@
 .btn {
   &,
-  &:link,
-  &:visited {
+  &:link  {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -57,10 +56,10 @@
 
   &--green {
     background-color: $color-primary;
-    color: $color-gray-dark;
+    color: $color-white;
 
     &::after {
-      background-color: $color-white;
+      background-color: $color-primary;
     }
   }
 
